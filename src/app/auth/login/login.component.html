@@ -1,0 +1,140 @@
+<div id="all">
+  <!-- <section class="relative-positioned id="intro>
+    <div class="container"> -->
+      <!-- Carousel Start-->
+      <!-- <div class="home-carousel">
+       
+        <div class="container">
+          <div class="homepage">
+            <div class="item">
+              <div class="row">
+                <div class="col-md-5 text-right">
+
+                  <h1>Are you prepared for storm season?</h1>
+                  <p>From outage alerts to preparing emergency supply kits, we'll show you how to stay safe during storm
+                    season.</p>
+                  <p>Stay Safe ></p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+      <p-carousel [value]="carouselItems" [numVisible]="1"
+        [autoplayInterval]="3000" [circular]="false"
+        [style]="{'max-height': '500px'}" 
+        >
+        <ng-template let-caraosel pTemplate="item">
+          <img class="cmsCarousel" src={{caraosel.url}} title={{caraosel.title}}/>
+          <div class="container">
+              <div class="homepage">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-md-5 text-right">
+    
+                      <h1>{{caraosel.blurb}}</h1>
+                    </div>
+    
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+        </ng-template>
+      </p-carousel>
+      <!-- Carousel End-->
+    <!-- </div>
+  </section> -->
+  <section class="bar bg-gray">
+    <div class="container">
+
+      <div class="row service text-center">
+        <div class="col-md-3 col-sm-6">
+          <div class="item">
+            <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-usd"></i></div>
+            <h4><a href="#">Pay Your Bills</a></h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="item">
+            <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-tachometer"></i></div>
+            <h4><a href="#">Check My Balance</a></h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="item">
+            <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-bolt"></i></div>
+            <h4><a href="#">Report outages</a></h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="item">
+            <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-caret-square-o-right"></i></div>
+            <h4><a href="#">Start and Stop Services</a></h4>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <section class="bg-white bar">
+    <div class="container">
+      <div class="heading text-center">
+        <h2>Featured</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="home-feature-post">
+            <div class="image"><img src="./assets/images/save-power.jpg" alt="..." class="img-fluid">
+
+            </div>
+            <div class="text">
+              <h5><a href="#">Energy Savings </a></h5>
+
+              <p class="intro">The Energy Savings Assistance Program provides qualified customers with energy-efficient
+                home improvements at no charge.</p><a href="#" class="btn btn-template-outlined">more info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="home-feature-post">
+            <div class="image"><img src="./assets/images/road-166543_640.jpg" alt="..." class="img-fluid">
+
+            </div>
+            <div class="text">
+              <h5><a href="#">Summer Rates</a></h5>
+
+              <p class="intro">Understand summer rates and use these tips to help increase your home’s energy efficiency
+                and save energy costs in almost every room!</p><a href="#" class="btn btn-template-outlined">More
+                info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="home-feature-post">
+            <div class="image"><img src="./assets/images/solar-panels-1794467_640.jpg" alt="..."
+                class="img-fluid">
+
+            </div>
+            <div class="text">
+              <h5><a href="#">Solar Power</a></h5>
+
+              <p class="intro">Find out how you can support the development of solar power with Community Solar. Then
+                receive energy credits on your monthly bill.</p><a href="#" class="btn btn-template-outlined">More
+                Info</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>

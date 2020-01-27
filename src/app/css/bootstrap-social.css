@@ -1,0 +1,66 @@
+.social-btns{
+    font-size: 22px;
+    list-style: none;
+    padding: 0 0 5px 0;
+}
+
+.social-btns li{
+    margin-bottom: 5px;
+}
+
+.social-btns li i{
+    font-size: 22px;
+}
+
+.social-btns .btn-facebook {
+  background-color: #38519f;
+  border-color: #293b75;
+  color: #ffffff;
+  min-width: 250px;
+}
+
+.social-btns .btn-facebook:hover {
+  color: #ffffff;
+  background-color: #293b75;
+}
+
+.social-btns .btn-twitter {
+  background-color: #00a8fa;
+  border-color: #048cce;
+  color: #ffffff;
+  min-width: 250px;
+}
+
+.social-btns .btn-twitter:hover {
+  color: #ffffff;
+  background-color: #048cce;
+}
+
+.social-btns .btn-linkedin {
+  background-color: #00629e;
+  border-color: #044a75;
+  color: #ffffff;
+  min-width: 250px;
+}
+
+.social-btns .btn-linkedin:hover {
+  color: #ffffff;
+  background-color: #044a75;
+}
+
+.social-btns .btn-google {
+  background-color: #df270b;
+  border-color: #a01b03;
+  color: #ffffff;
+  min-width: 250px;
+}
+
+.social-btns .btn-google:hover {
+  color: #ffffff;
+  background-color: #a01b03;
+}
+
+
+.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; }

@@ -1,0 +1,17 @@
+/* @import url("../../css/custom-style.css");
+@import url("../../css/custom.css");
+@import url("../../css/bootstrap-social.css"); */
+
+.cmsCarousel {
+    width: 100%;
+  height: 270px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+:host /deep/ .ui-carousel-content {
+    overflow:  hidden !important;
+}
+
+/* background: url('../../assets/images/thunderstorm-3625405_1920.jpg') center center repeat; 
+  background-size: cover; padding-top: 90px;
+  padding-bottom: 40px; */

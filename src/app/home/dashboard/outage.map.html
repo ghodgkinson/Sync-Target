@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>Thunderbolt Power & Gas</title> 
+  <meta name="description" content=""> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="robots" content="all,follow"> 
+ </head> 
+ <body> 
+  <div id="all"> 
+   <!-- Top bar--> 
+   <div class="top-bar"> 
+    <div class="container"> 
+     <div class="row d-flex align-items-center"> 
+      <div class="col-md-6 d-md-block d-none"> 
+       <p>Contact us on +1 123 456 7890 for any outages</p> 
+      </div> 
+      <div class="col-md-6"> 
+       <div class="d-flex justify-content-md-end justify-content-between"> 
+        <ul class="list-inline contact-info d-block d-md-none"> 
+         <li class="list-inline-item">Contact us on +1 123 456 7890</li> 
+        </ul> 
+        <div class="login"> 
+         <a *ngIf="_auth.isLoggedIn()" data-toggle="modal" data-target="#login-modal" class="login-btn" (click)="doLogout()"> <i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Logout</span> </a> 
+         <div class="btn-group"> 
+          <span class="d-none d-md-inline-block"><i class="fa fa-user"></i></span> 
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 0; padding: 0 0 0 12px; text-transform:none; font-weight: 500; color: #666;"> <span class="d-none d-md-inline-block">{{loginUserName}}</span> </button> 
+          <div class="dropdown-menu"> 
+           <a class="dropdown-item" href="#">Manage Accounts</a> 
+           <a class="dropdown-item" href="#">Alerts &amp; Communication</a> 
+           <a class="dropdown-item" href="#">Contact Information</a> 
+           <div class="dropdown-divider"></div> 
+           <a *ngIf="_auth.isLoggedIn()" class="dropdown-item" (click)="doLogout()">Logout</a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!-- Top bar end--> 
+   <!-- Login Modal--> 
+<div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade"> 
+    <div role="document" class="modal-dialog"> 
+     <div class="modal-content"> 
+      <div class="modal-header"> 
+       <h4 id="login-modalLabel" class="modal-title">Secure Login</h4> 
+       <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button> 
+      </div> 
+      <div class="modal-body"> 
+       <div class="row"> 
+        <div class="col-md-6"> 
+         <form id="loginForm" method="POST" action="/login/" novalidate> 
+          <div class="input-group mb-3"> 
+           <div class="input-group-prepend"> 
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span> 
+           </div> 
+           <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> 
+          </div> 
+          <div class="input-group mb-3"> 
+           <div class="input-group-prepend"> 
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span> 
+           </div> 
+           <input type="password" class="form-control" placeholder="Password" aria-label="pasword" aria-describedby="basic-addon1"> 
+          </div> 
+          <button type="submit" class="btn btn btn-template-main btn-block">Log In</button> 
+          <div class="small pt-3"> 
+           <label> <input type="checkbox" name="remember" id="remember"> Remember login </label> 
+          </div> 
+          <div class="row small pt-3"> 
+           <div class="col-sm-6"> 
+            <a href="#">Forgot Password?</a> 
+           </div> 
+           <div class="col-sm-6"> 
+            <a href="#">Forgot Username?</a> 
+           </div> 
+          </div> 
+         </form> 
+        </div> 
+        <div class="col-md-1"> 
+         <div class="vertical-divider">
+          or
+         </div> 
+        </div> 
+        <div class="col-md-5"> 
+         <div class="container"> 
+          <div class="row"> 
+           <ul class="social-btns center-block"> 
+            <li><button class="btn btn-facebook"><i class="fa fa-facebook pull-left" aria-hidden="true"></i>Sign in with Facebook</button></li> 
+            <li><button class="btn btn-google"><i class="fa fa-google-plus pull-left" aria-hidden="true"></i>Sign in with Google</button></li> 
+            <li><button class="btn btn-twitter"><i class="fa fa-twitter pull-left" aria-hidden="true"></i>Sign in with Twitter</button></li> 
+            <li><button class="btn btn-linkedin"><i class="fa fa-linkedin pull-left" aria-hidden="true"></i>Sign in with Linkedin</button></li> 
+           </ul> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!-- Login modal end--> 
+   <!-- Navbar Start--> 
+   <header class="nav-holder make-sticky"> 
+    <div id="navbar" role="navigation" class="navbar navbar-expand-lg"> 
+     <div class="container">
+      <a routerLink="" class="navbar-brand home"><img src="./assets/images/logo.png" alt="Thunderbolt Power & Gas" class="d-none d-md-inline-block"><img src="./assets/images/logo-small.png" alt="Thunderbolt Power & Gas" class="d-inline-block d-md-none"><span class="sr-only">Thunderbolt Power & Gas - go to homepage</span></a> 
+      <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button> 
+      <div id="navigation" class="navbar-collapse collapse"> 
+       <ul class="nav navbar-nav ml-auto"> 
+        <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Residential <b class="caret"></b></a> 
+         <ul class="dropdown-menu"> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 1</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 2</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">option 3</a></li> 
+         </ul> </li> 
+        <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Business </a> 
+         <ul class="dropdown-menu"> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 1</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 2</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">option 3</a></li> 
+         </ul> </li> 
+        <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a> 
+         <ul class="dropdown-menu"> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 1</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 2</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">option 3</a></li> 
+         </ul> </li> 
+        <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Company <b class="caret"></b></a> 
+         <ul class="dropdown-menu"> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 1</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">Option 2</a></li> 
+          <li class="dropdown-item"><a href="#" class="nav-link">option 3</a></li> 
+         </ul> </li> 
+        <li class="nav-item"><a href="javascript: void(0)">Shop </a></li> 
+       </ul> 
+      </div> 
+      <div id="search" class="collapse clearfix"> 
+       <form role="search" class="navbar-form"> 
+        <div class="input-group"> 
+         <input type="text" placeholder="Search" class="form-control">
+         <span class="input-group-btn"> <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span> 
+        </div> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </header> 
+   <!-- Navbar End--> 
+   <div id="heading-breadcrumbs"> 
+    <div class="container"> 
+     <div class="row d-flex align-items-center flex-wrap"> 
+      <div class="col-md-7"> 
+       <h1 class="h2">Current Power Outages</h1> 
+      </div> 
+      <div class="col-md-5"> 
+       <ul class="breadcrumb d-flex justify-content-end"> 
+        <li class="breadcrumb-item">Home</li> 
+        <li class="breadcrumb-item active">Report Outage</li> 
+        <li>test typing </li>
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="content"> 
+    <div class="container"> 
+   
+     
+        <section class="no-mb bar">
+            <div class="row">
+              <div class="col-md-12 outage-text">
+                <p class="lead no-mb">When outages do occur, you can expect our crews to respond quickly to restore power promptly and safely. We know it's never convenient to be without power -- that’s why we provide multiple ways for you to report your issue. Reporting is easy. Just call our automated response line at <b>1-888-333-4465</b> or you can report your outage online.
+                </p>
+                <p><a href="#">Report Power Outage</a> | <a href="#" class="ml-3">Check Outage Status</a></p>
+              </div>
+            </div>
+          </section>
+
+          <div class="row mb-4">
+            <div class="col-lg-8">
+                    <div class="heading">
+                            <h3>Search location</h3>
+                          </div> 
+              <div id="accordion" role="tablist">
+                <div class="">
+                  <div id="headingOne" role="tab"   >
+                        <div class="form-group has-search">
+                                <span class="fa fa-search form-control-feedback"></span>
+                                <input type="text" class="form-control" placeholder="Search Location">
+                              </div>
+                  </div>
+                  <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show">
+                    <div class="card card-body">
+                      <div class="row">
+                       
+                        <div class="col-md-12" style="background-image: url('/assets/images/map.png'); height: 475px; width:350px;">
+                           <p>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+          
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="">
+                   <div class="heading">
+                  <h3>Customer Outages</h3>
+                </div>    
+                    <div class="table-responsive">
+                            <table class="table table-bordered">
+                                    <thead style="background-color: #e2e2e2;">
+                                            <tr>
+                                              <th scope="col">City</th>
+                                              <th scope="col">Number of Outages</th>
+                                         
+                                            </tr>
+                                          </thead>
+                              <tbody>
+                                <tr>
+                                  <td><a href="#">City1</a></td>
+                                  <th>4</th>
+                                </tr>
+                                <tr>
+                                  <td><a href="#">City2</a></td>
+                                  <th>1</th>
+                                </tr>
+                                <tr>
+                                  <td><a href="#">City3</a></td>
+                                  <th>0</th>
+                                </tr>
+                                <tr class="total">
+                                  <td><a href="#">City4</a></td>
+                                  <th>2</th>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+              </div>
+            </div>
+          </div>
+   
+  
+    </div> 
+  
+   </div> 
+
+   
+   <!-- FOOTER --> 
+   <footer class="main-footer"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-lg-3"> 
+       <ul class="list-unstyled footer-blog-list"> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Newsroom</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">For Our Business Partners</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Environment</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Media Resources</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Resources</a></p> 
+         </div> </li> 
+       </ul> 
+       <hr class="d-block d-lg-none"> 
+      </div> 
+      <div class="col-lg-3"> 
+       <ul class="list-unstyled footer-blog-list"> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Accessibility</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Regulation</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Privacy</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Terms and Conditions</a></p> 
+         </div> </li> 
+        <li class="d-flex align-items-center"> 
+         <div class="text"> 
+          <p class="mb-0"> <a href="#">Site Feedback</a></p> 
+         </div> </li> 
+       </ul> 
+       <hr class="d-block d-lg-none"> 
+      </div> 
+      <div class="col-lg-3"> 
+       <h4 class="h6">Send Billing Checks To</h4> 
+       <p class="text-uppercase"><strong>Thunderbolt Power & Gas</strong><br><strong>123 1st Street</strong><br>New York, NY 12345<br> Tel +1(123)456-7890</p> 
+       <p class="text-uppercase"></p> 
+       <hr class="d-block d-lg-none"> 
+      </div> 
+      <div class="col-lg-3"> 
+       <a href="#" class="btn btn-template-main" style="width:250px;">Contact Us</a> 
+       <hr class="d-block d-lg-none"> 
+       <p class=""> </p>
+       <ul class="footer-social social-custom list-inline"> 
+        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li> 
+        <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li> 
+        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li> 
+        <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li> 
+       </ul> 
+       <p></p> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="copyrights"> 
+     <div class="container"> 
+      <div class="row"> 
+       <div class="col-lg-4 text-center-md"> 
+        <p>© 2019 Thunderbolt Power & Gas. All rights reserved.</p> 
+       </div> 
+       <div class="col-lg-8 text-right text-center-md"> 
+        <p><img src="./assets/images/logo-off.png"></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div>  
+ </body>
+</html>
+

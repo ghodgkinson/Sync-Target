@@ -1,0 +1,16 @@
+:host /deep/ .ui-autocomplete {
+    width: 690px !important;
+    zoom: 1;
+    cursor: pointer;
+    box-shadow: none;
+    position: relative;
+    display: inline-block;
+}
+:host /deep/ .ui-autocomplete .ui-autocomplete-input {
+    width: 690px !important;
+
+}
+
+:host /deep/ .H_ib_content {
+    min-width: 14em !important;
+}

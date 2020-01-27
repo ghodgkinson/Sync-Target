@@ -1,0 +1,96 @@
+<div id="heading-breadcrumbs"> 
+        <div class="container"> 
+         <div class="row d-flex align-items-center flex-wrap"> 
+          <div class="col-md-7"> 
+           <h1 class="h2">Current Power Outages</h1> 
+          </div> 
+          <div class="col-md-5"> 
+           <ul class="breadcrumb d-flex justify-content-end"> 
+            <li class="breadcrumb-item">Home</li> 
+            <li class="breadcrumb-item active">Report Outage</li> 
+            </ul> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div id="content"> 
+        <div class="container"> 
+       
+         
+            <section class="no-mb bar">
+                <div class="row">
+                  <div class="col-md-12 outage-text">
+                    <p class="lead">When outages do occur, you can expect our crews to respond quickly to restore power promptly and safely. We know it's never convenient to be without power -- that’s why we provide multiple ways for you to report your issue. Reporting is easy. Just call our automated response line at <b>1-888-333-4465</b> or you can report your outage online.
+                    </p>
+                    <p><a href="#">Report Power Outage</a> | <a href="#" class="ml-3">Check Outage Status</a></p>
+                  </div>
+                </div>
+              </section>
+    
+              <div class="row mb-4">
+                <div class="col-lg-8">
+                        <div class="heading">
+                                <h3>Search location</h3>
+                              </div> 
+                  <div id="accordion" role="tablist">
+                    <div class="">
+                      <div id="headingOne" role="tab"   >
+                            <div class="form-group has-search">
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                     <p-autoComplete [(ngModel)]="placeName" [suggestions]="results" placeholder="Search places..."
+                                     (completeMethod)="searchHandler($event)" field="title" class="form-control border-primary" (onSelect)="onSelectPlace($event)">
+                                     <ng-template let-placeName pTemplate="item">
+                                       <div class="ui-helper-clearfix">
+                                           <i class="pi pi-map-marker" style="font-size: 24px; float: left; margin: 0 10px 0px 0px;"></i>
+             
+                                           <div style="font-size:18px;float:left;margin:10px 10px 0 0">{{placeName.title}}</div>
+                                           <div style="font-size:14px; color:#9d9d9d;float:left;margin:10px 10px 0 0">{{placeName.vicinity}}</div>
+                                       </div>
+                                   </ng-template>
+                                   </p-autoComplete>
+                                  </div>
+                      </div>
+                      <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show">
+                        <div class="card card-body">
+                          <div class="row">
+                           
+                            <div class="col-md-12" 
+                            >
+                            <!-- style="background-image: url('../../../assets/images/map.png'); height: 475px; width:350px; background-size: 100%; background-repeat: no-repeat;"> -->
+                              <div #map [style.width]="width" [style.height]="height"></div>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+              
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="">
+                       <div class="heading">
+                      <h3>Customer Outages</h3>
+                    </div>    
+                        <div class="table-responsive">
+                                <table class="table table-bordered">
+                                        <thead style="background-color: #e2e2e2;">
+                                                <tr>
+                                                  <th scope="col">City</th>
+                                                  <th scope="col">Number of Outages</th>
+                                                </tr>
+                                              </thead>
+                                  <tbody>
+                                    <tr *ngFor="let city of cities">
+                                      <td><a style="color: #007ad9; cursor: pointer;" (click)="onCityClick(city)">{{city.name}}</a></td>
+                                      <td>{{city.outage}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                  </div>
+                </div>
+              </div>
+        </div> 
+        </div>

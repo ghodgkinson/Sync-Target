@@ -1,0 +1,13 @@
+<agm-map #agmMap [latitude]="appLatitude" [longitude]="appLongitute" [zoom]="zoom" [zoomControl]="true" [mapTypeControl]="true" [usePanning]="true"
+[scrollwheel]="true" [disableDefaultUI]="false" (mapReady)="mapReady()">
+    <!-- <agm-marker
+    [latitude]="defaultCenter.lat"
+    [longitude]="defaultCenter.lng"
+  ></agm-marker> -->
+
+  <agm-marker [latitude]="appLatitude" [longitude]="appLongitute">
+  </agm-marker>
+
+  <agm-polygon [paths]="agmPaths" [strokeColor]="'#572525'" [fillColor]="'#572525'" [strokeWeight]="2"
+    [strokeOpacity]="0.8" [fillOpacity]="0.35"></agm-polygon>
+</agm-map>

@@ -1,0 +1,207 @@
+<div>
+   <!-- Navbar End--> 
+   <div id="heading-breadcrumbs"> 
+    <div class="container"> 
+     <div class="row d-flex align-items-center flex-wrap"> 
+      <div class="col-md-7"> 
+       <h1 class="h2">Account Details</h1> 
+      </div> 
+      <div class="col-md-5"> 
+       <ul class="breadcrumb d-flex justify-content-end"> 
+        <li class="breadcrumb-item">Home</li> 
+        <li class="breadcrumb-item active">Account Details</li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="content"> 
+    <div class="container"> 
+     <div class="row bar"> 
+      <div id="customer-account" class="col-lg-9 clearfix"> 
+          
+       <form #registerUserForm="ngForm" name="registerForm" novalidate="novalidate" (ngSubmit)="onSubmit(registerUserForm)">  
+        <div class="row"> 
+         <div class="col-md-12"> 
+          <!--    <div class="row">
+                            <div class="col-md-6">
+                                <h6>Account Number</h6>
+                                <p class="lead">12-345678-897</p>
+                                <hr>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Address</h6>
+                                <p class="lead">123 First Main St, New York NY 12345&nbsp;&nbsp;
+                                  <i class="fa fa-question-circle" rel="popover" title="If this is not correct, please contact Customer support." data-content="Content" data-toggle="tooltip" data-placement="right"></i>
+                                </p>
+                                <p class="text-center">
+                                   
+                                  </p>
+                              <hr> </div>
+                        </div> --> 
+          <div class="row"> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="firstname">Firstname</label> 
+             <input ngModel required id="firstname" name="firstname" type="text" class="form-control" #inputfirstname="ngModel"> 
+             <span class="form-error"  *ngIf="!inputfirstname.valid && inputfirstname.touched">Please enter First Name</span>
+            </div> 
+           </div> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="lastname">Lastname</label> 
+             <input ngModel required id="lastname" name="lastname" type="text" class="form-control" #inputlastname="ngModel"> 
+             <span class="form-error" *ngIf="!inputlastname.valid && inputlastname.touched">Please enter Last Name</span>
+            </div> 
+           </div> 
+          </div> 
+          <div class="row"> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="email">Email (This will be your user id)</label> 
+             <input ngModel required maxlength="100" email id="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="john.doe@company.com" #inputEMail="ngModel"> 
+             <span class="form-error"  *ngIf="!inputEMail.valid && inputEMail.touched">Please enter a valid email</span>
+            </div> 
+           </div> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+                <label for="ssn">Last 4 of SSN</label> 
+                <input ngModel  required  id="ssn" name="ssn"  pattern="[0-9]{4}" maxlength="4" class="form-control" #inputSSN="ngModel"> 
+                <span class="form-error"  *ngIf="!inputSSN.valid && inputSSN.touched">Please enter last 4 digits of SSN</span>
+            </div> 
+           </div>            
+          </div> 
+          <hr> 
+          <div class="row"> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="street">Street Address1</label> 
+             <input ngModel  id="address_1" name="address_1" type="text" class="form-control"> 
+            </div> 
+           </div> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="address_2">Street Address2</label> 
+             <input ngModel  id="address_2" name="address_2"  type="text" class="form-control"> 
+            </div> 
+           </div> 
+          </div> 
+
+          <div class="row"> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="city">City</label> 
+             <input ngModel  id="city" name="city" type="text" class="form-control"> 
+            </div> 
+           </div> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="state" >State</label> 
+              <br>
+              <select  ngModel  id="stateSelected" name="stateSelected" class="form-control" >
+                <option value=""></option>
+                <option *ngFor=" let state of listOfStates" [ngValue]="state.abbreviation">
+                    {{state.abbreviation}}
+                </option>
+              </select>
+            </div> 
+           </div> 
+          </div> 
+          <div class="row"> 
+            <div class="col-md-6"> 
+             <div class="form-group"> 
+              <label for="street">Zip Code</label> 
+              <input ngModel  required id="zipcode" name="zipcode" type="text" maxlength="5" pattern="[0-9]{5}"  class="form-control" #inputzipcode="ngModel">  <!--pattern="('[0-9]{5}$')"-->
+              <span class="form-error"  *ngIf="!inputzipcode.valid && inputzipcode.touched">Please enter valid zipcode</span>
+             </div> 
+            </div> 
+           </div>           
+          <hr>
+
+          <div class="content"> 
+            <div class="row"> 
+                <div class="col-md-6"> 
+                    <div class="form-group"> 
+                        <label for="accountnumber">Account Number</label> 
+                        <input ngModel required  maxlength="100" id="accountnumber" name="accountnumber" type="text" class="form-control" #inputaccountnumber="ngModel"> 
+                        <span class="form-error"  *ngIf="!inputaccountnumber.valid && inputaccountnumber.touched">Please enter Account Number</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6"> 
+                    <div class="form-group"> 
+                        <label for="webaccess">Web Access Code</label> 
+                        <input ngModel required maxlength="100"  id="webaccesscode" name="webaccesscode" type="text" class="form-control" #inputwebaccesscode="ngModel"> 
+                        <span class="form-error"  *ngIf="!inputwebaccesscode.valid && inputwebaccesscode.touched">Please enter Web Access Code</span>
+                    </div> 
+                </div> 
+            </div> 
+           </div> 
+          <hr> 
+
+          <div class="row pb-4"> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="password_1">New password <span class="required">*</span></label> 
+             <input ngModel required id="inputPassword_1" name="inputPassword_1" type="password" class="form-control"> 
+            </div> 
+           </div> 
+           <div class="col-md-6"> 
+            <div class="form-group"> 
+             <label for="confirmPassword">Retype new password <span class="required">*</span></label> 
+             <input ngModel required id="confirmPassword" name="confirmPassword" type="password" class="form-control" validateEqual="inputPassword_1" #confirmPassword="ngModel"> 
+             <small [hidden]="confirmPassword.valid ||  (confirmPassword.pristine && !registerUserForm.submitted)" >
+              <div role="alert" class="alert alert-danger">Password mismatch</div>
+              
+            </small>
+            </div> 
+           </div> 
+          </div> 
+          <div class="text-left"> 
+           <div id="no-tos-wrapper" class=""> 
+            <div class="form-check"> 
+             <input ngModel  name="chkAcceptTOS" required type="checkbox" class="form-check-input" id="chkAcceptTOS"> 
+             <label class="form-check-label" for="chkAcceptTOS">I accept the <a id="show-tos" href="#">Terms of Service</a></label> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="text-left mt-4"> 
+           <button type="submit" [disabled]="!registerUserForm.valid" class="btn btn-template-main"> Register</button> 
+          </div> 
+         </div> 
+        </div> 
+       </form> 
+
+
+       <div *ngIf="confirmCode" class="row message-row">
+            <h3>Please check your email for the validation code and enter it here:</h3>
+            <div class="col-lg-4">
+              <form (ngSubmit)="validateAuthCode(codeform)" #codeform="ngForm">
+                <div class="form-group">
+                  <label for="code">Code</label>
+                  <input type="text" name="code" id="code" ngModel class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Validate Code</button>
+              </form>
+            </div>
+        </div>            
+
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            <p> {{errorMessage}} </p> 
+        </div>
+           
+           
+
+      </div> 
+      <div class="box mt-5"> 
+      </div> 
+     </div> 
+     <div class="col-lg-3 mt-4 mt-lg-0"> 
+      <div class="panel panel-default sidebar-menu"> 
+       <p></p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
